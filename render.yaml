@@ -6,9 +6,11 @@ services:
     branch: master
     buildCommand: cd backend; yarn
     startCommand: ts-node backend/index.ts
+    staticPublishPath: ./backend
   - type: web
     name: game-frontend
     branch: master
     env: node
     buildCommand: cd frontend; yarn; yarn build
+    startCommand: cd frontend; yarn start
     staticPublishPath: ./frontend/build/
