@@ -1,0 +1,16 @@
+{
+  "name": "battleship-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "a battleship game",
+  "main": "index.js",
+  "author": "steve-phan",
+  "license": "MIT",
+  "scripts": {
+    "start:server": "nodemon backend/index.ts"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}

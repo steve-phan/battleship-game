@@ -1,0 +1,14 @@
+services:
+  - type: battleship-game
+    name: game-backend
+    env: node
+    rootDir: backend
+    branch: master
+    buildCommand: cd backend; yarn
+    startCommand: ts-node backend/index.ts
+  - type: battleship-game
+    name: game-frontend
+    branch: master
+    env: node
+    buildCommand: cd frontend; yarn; yarn build
+    staticPublishPath: ./frontend/build/
