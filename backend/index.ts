@@ -7,14 +7,20 @@ import { Server } from "socket.io";
 dotenv.config();
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
-console.log({ port: process.env.PORT });
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 io.on("connection", (socket) => {
   console.log("a user connected");
-  socket.emit("hello", "world");
+  socket.emit("helloWorld", { message: "A message from BE" });
+  socket.on("helloWorld", (data) => {
+    console.log(`I received the data`, data);
+  });
 });
 
 server.listen(PORT, () => {
